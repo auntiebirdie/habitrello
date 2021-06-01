@@ -22,7 +22,6 @@ So I made a simple Cloud Function webhook to integrate Trello, where I can manag
 
 - Set up your Trello webhook
   - Save the following to ``secrets/webhook.json``
-  - Call the webhook creation endpoint [see the ofddficial documentation](https://developer.atlassian.com/cloud/trello/guides/rest-api/webhooks/)
     - API_KEY : [returned from the app key page](https://trello.com/app-key/)
     - TOKEN" : [manually generate a Token on the app key page](https://trello.com/app-key/)
     - BOARD_ID: I'm not 100% sure the best way to get this.  I load the page with the Network Inspector running, filter to find the one that contains ``lists=open``, and grab the id from the response.
