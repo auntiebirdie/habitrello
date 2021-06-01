@@ -5,12 +5,11 @@
   "main": "./index.js",
   "author": "seppukawaii <seppukawaii@gmail.com>",
   "scripts": {
-    "deploy" : "npm run deploy-function && npm run deploywebhook",
-    "deploy-function": "gcloud functions deploy habitrello --trigger-http --security-level=secure-always --runtime=nodejs14 --env-vars-file=secrets/habitica.yaml",
+    "deploy": "npm run deploy-function && npm run deploy-webhook",
+    "deploy-function": "gcloud functions deploy habitrello --trigger-http --security-level=secure-always --runtime=nodejs14 --env-vars-file=secrets/function.yaml",
     "deploy-webhook": "callbackURL=$(gcloud functions describe habitrello --format='get(httpsTrigger.url)') node webhook.js"
   },
   "dependencies": {
-    "crypto": "^1.0.1",
     "habitica": "^4.0.0",
     "request": "^2.88.2"
   }

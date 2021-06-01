@@ -1,11 +1,20 @@
+const crypto = require('crypto');
+
 exports.webhook = (req, res) => {
   try {
-    var action = req.body.action;
+    const action = req.body.action;
 
-    if (action.type == "updateCard" && action.data.card.closed) {
-      var Habitica = require('habitica');
+    const content = JSON.stringify(req.body) + "https://us-central1-obsessive-coding-disorder.cloudfunctions.net/habitrello";
+    const doubleHash = crypto.createHmac("sha1", process.env.TRELLO_OAUTH_SECRET).update(content).digest("base64");
+    const isFromTrello = doubleHash == req.headers['x-trello-webhook'];
 
-      var api = new Habitica({
+    if (!isFromTrello) {
+      res.status(403).send("not authorized");
+    }
+    else if (action.type == "updateCard" && action.data.card.closed) {
+      const Habitica = require('habitica');
+
+      const api = new Habitica({
         id: process.env.HABITICA_USER_ID,
         apiToken: process.env.HABITICA_API_TOKEN
       });
