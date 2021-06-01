@@ -36,7 +36,3 @@ So I made a simple Cloud Function webhook to integrate Trello, where I can manag
 - Run ``npm run deploy``
 
 - Create a task, mark it done (archive it), and check to see if you successfully gained EXP/gold/items in Habitica!
-
-## TODO
-- [ ] comments!!
-- [ ] better security (verify caller, don't just accept any input from anyone)
