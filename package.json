@@ -1,0 +1,10 @@
+{
+  "name": "habitrello",
+  "version": "0.0.1",
+  "description": "A simple webhook receiver to integrate Habitica and Trello",
+  "main": "./index.js",
+  "author": "seppukawaii <seppukawaii@gmail.com>",
+  "dependencies": {
+    "habitica": "^4.0.0"
+  }
+}
